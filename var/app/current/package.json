@@ -1,0 +1,32 @@
+{
+  "name": "fakebigdata",
+  "description": "Renders factorial, fibonacci, and prime number sequences in a graph",
+  "version": "1.0.4",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "dependencies": {
+    "big-integer": "^1.6.3",
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "mongojs": "^0.18.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hudsonpeden/fakebigdata.git"
+  },
+  "keywords": [
+    "fakebigdata",
+    "prime",
+    "factorial",
+    "fibonacci"
+  ],
+  "author": "Hudson Peden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hudsonpeden/fakebigdata/issues"
+  },
+  "homepage": "https://github.com/hudsonpeden/fakebigdata#readme"
+}

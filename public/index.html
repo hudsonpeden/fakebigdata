@@ -188,10 +188,8 @@
 		 breakAnimation = false;
 		 data.length = 0;
 		 var timeout = interval * 1000;
-		 //console.log("Timeout: " + timeout);
 
-			//console.log(funcName);
-			var counter = parseInt(start);
+		 var counter = parseInt(start);
 
 			function next() {
 					if(breakAnimation)
@@ -214,12 +212,10 @@
 
 									console.log("resArray is: " + rawString);
 									console.log("resArray length is: " + rawString.length);
-									// for (var i = 0; i < rawString.length; i++) {
-									// 	console.log(rawString[i] + " ");
-									// }
+
 									document.getElementById('big-int-output').innerHTML = rawString;
 
-									//Loop that sends each value of the returned array into it's appropriate bar
+									//Loop that sends each value of the returned array into its appropriate bar
 									for (var j = 0; j < numberOfDataPoint; j++) {
 											data.push({x: j, y: parseFloat(resArray[j]) });
 											//console.log(parseFloat(resArray[j]));
@@ -232,22 +228,20 @@
 						if (document.getElementById("number-type-select").value == "1"){
 							console.log("Hello from select value 1 - factorial ");
 							document.getElementById('functionSel').innerHTML = "factorial";
-							xmlHttp.open("GET", '/factorialinsert/' + counter, true);
+							xmlHttp.open("GET", '/factorial/' + counter, true);
 							xmlHttp.send();
 						} else if (document.getElementById("number-type-select").value == "2") {
 							console.log("Hello from select value 2 - fibonacci ");
 							document.getElementById('functionSel').innerHTML = "fibonacci";
-							xmlHttp.open("GET", '/fibInsert/' + counter, true);
+							xmlHttp.open("GET", '/fibonacci/' + counter, true);
 							xmlHttp.send();
 						} else if (document.getElementById("number-type-select").value == "3"){
 							document.getElementById('functionSel').innerHTML = "prime";
-							xmlHttp.open("GET", '/primeInsert/' + counter, true);
+							xmlHttp.open("GET", '/prime/' + counter, true);
 							xmlHttp.send();
 						}
 						counter = counter + 1;
 
-						//render text in output box
-							//document.getElementById('big-int-output').innerHTML = ;
 							setTimeout(next, timeout);
 					}
 
@@ -256,22 +250,19 @@
 	}
 
 
-	var numberOfDataPoint = 10,
-	// var numberOfDataPoint = 31,
-			data = [];
+	var numberOfDataPoint = 10, data = [];
+
 	data = d3.range(numberOfDataPoint).map(function (i) {
 			return {x: i, y: randomData()};
 	});
+
 	var chart = barChart()
-					// .x(d3.scale.linear().domain([-1, 32]))
 					.x(d3.scale.linear().domain([0, 10]))
 					.y(d3.scale.linear().domain([0, 100]));
 	chart.setSeries(data);
 	chart.render();
 	var abc = null;
 	var cde = null;
-
-	//$scope.chart = chart;
 
 
 	function foreverLoop() {
@@ -290,14 +281,14 @@
 		breakAnimation = true;
 	}
 
-	function populateData(){
-		console.log("Hello from PopulateData()");
-		var xhr = new XMLHttpRequest();
-		xhr.onload = function(){alert (xhr.responseText); } // take a look
-		xhr.open ("POST", '/factorialinsert', true);
-		xhr.send (null);
-		return false;
-	}
+	// function populateData(){
+	// 	console.log("Hello from PopulateData()");
+	// 	var xhr = new XMLHttpRequest();
+	// 	xhr.onload = function(){alert (xhr.responseText); } // take a look
+	// 	xhr.open ("POST", '/factorialinsert', true);
+	// 	xhr.send (null);
+	// 	return false;
+	// }
 
 
 </script>
@@ -322,10 +313,6 @@
 
 
 
-	<!--<input type="button" onclick="digitDist
-	(document.getElementById('factorial').value)" value="Submit">-->
-
-
 	</form>
 
 
@@ -337,10 +324,6 @@
 		<!-- <button class="btn btn-default" onclick="populateData()">PopulateData</button> -->
 
 	</div>
-	<!--<div class="control-group">
-		<button onclick="foreverLoop()">Continuous Loop</button>
-	</div>-->
-
 
 
    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
